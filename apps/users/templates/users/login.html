@@ -1,0 +1,9 @@
+
+
+<h1>Iniciar Sesión</h1>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Entrar</button>
+</form>
+<a href="{% url 'users:register' %}">¿No tienes cuenta? Regístrate</a>

@@ -1,0 +1,73 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2025-07-27T00:00:00.000Z",
+  "__export_source": "textilshop",
+  "resources": [
+    {
+      "_id": "wrk_textilshop",
+      "_type": "workspace",
+      "name": "TextilShop API",
+      "description": "Testing completo para APIs de e-commerce textil"
+    },
+    {
+      "_id": "env_dev",
+      "_type": "environment",
+      "parentId": "wrk_textilshop",
+      "name": "Development",
+      "data": {
+        "base_url": "http://127.0.0.1:8000/api"
+      }
+    },
+    {
+      "_id": "env_test",
+      "_type": "environment",
+      "parentId": "wrk_textilshop",
+      "name": "Testing",
+      "data": {
+        "base_url": "http://127.0.0.1:8000/api"
+      }
+    },
+    {
+      "_id": "req_listar_productos",
+      "_type": "request",
+      "parentId": "wrk_textilshop",
+      "name": "Listar Productos",
+      "method": "GET",
+      "url": "{{ base_url }}/products/",
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" }
+      ]
+    },
+    {
+      "_id": "req_crear_categoria",
+      "_type": "request",
+      "parentId": "wrk_textilshop",
+      "name": "Crear Categoría",
+      "method": "POST",
+      "url": "{{ base_url }}/categories/",
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"name\": \"Vestidos\",\n  \"description\": \"Vestidos elegantes para toda ocasión\"\n}"
+      }
+    },
+    {
+      "_id": "req_crear_producto",
+      "_type": "request",
+      "parentId": "wrk_textilshop",
+      "name": "Crear Producto",
+      "method": "POST",
+      "url": "{{ base_url }}/products/",
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"name\": \"Vestido Floral\",\n  \"description\": \"Vestido con estampado floral primaveral\",\n  \"price\": \"89.99\",\n  \"category_id\": 1,\n  \"sizes\": [\"XS\", \"S\", \"M\", \"L\"],\n  \"colors\": [\"Rosa\", \"Azul\", \"Verde\"],\n  \"stock\": 30\n}"
+      }
+    }
+  ]
+}

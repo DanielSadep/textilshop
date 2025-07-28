@@ -1,0 +1,10 @@
+{
+  "timestamp": "2025-07-28 09:28:35",
+  "target": "http://localhost:8000",
+  "summary": {
+    "high_risk": 0,
+    "medium_risk": 0,
+    "low_risk": 0
+  },
+  "message": "No se encontraron vulnerabilidades."
+}

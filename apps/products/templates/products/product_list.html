@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Lista de Productos</h2>
+
+  {% if products %}
+    <ul>
+      {% for product in products %}
+        <li>
+          <strong>{{ product.name }}</strong> - ${{ product.price }}<br>
+          
+          {% if product.image %}
+            <img src="{{ product.image.url }}" alt="{{ product.name }}" width="100"><br>
+          {% endif %}
+
+          <form method="post" action="{% url 'cart:add_to_cart' product.id %}">
+            {% csrf_token %}
+            <button type="submit">Agregar al carrito</button>
+          </form>
+        </li>
+        <hr>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No hay productos disponibles.</p>
+  {% endif %}
+
+  <a href="{% url 'products:create_product' %}">Crear nuevo producto</a>
+{% endblock %}

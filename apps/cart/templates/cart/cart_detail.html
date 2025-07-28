@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Tu carrito</h1>
+
+  {% if cart_items %}
+    <ul>
+      {% for item in cart_items %}
+        <li>
+          {{ item.quantity }} x {{ item.product.name }} - ${{ item.product.price|floatformat:2 }}
+        </li>
+      {% endfor %}
+    </ul>
+
+    <p><strong>Total:</strong> ${{ total|floatformat:2 }}</p>
+    <a href="{% url 'products:product_list' %}">Seguir comprando</a> |
+    <a href="{% url 'orders:create_order' %}">Finalizar pedido</a>
+  {% else %}
+    <p>Tu carrito está vacío.</p>
+    <a href="{% url 'products:product_list' %}">Ir a productos</a>
+  {% endif %}
+{% endblock %}
